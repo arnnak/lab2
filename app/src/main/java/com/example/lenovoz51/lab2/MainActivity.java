@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity implements RequestOperator.R
     TextView title;
     TextView bodyText;
     private ModelPost publication;
+    private IndicationgView indicator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements RequestOperator.R
 
         title = (TextView)findViewById(R.id.title);
         bodyText = (TextView)findViewById(R.id.body_text);
+        indicator = (IndicationgView)findViewById(R.id.generated_graphic);
     }
 
     View.OnClickListener requestButtonClicked = new View.OnClickListener() {
@@ -56,12 +58,24 @@ public class MainActivity extends AppCompatActivity implements RequestOperator.R
     @Override
     public void success(ModelPost publication) {
         this.publication = publication;
+        setIndicatorStatus(IndicationgView.success);
         updatePublication();
     }
 
     @Override
     public void failed(int responseCode) {
         this.publication = null;
+        setIndicatorStatus(IndicationgView.failed);
         updatePublication();
+    }
+
+    public void setIndicatorStatus(final int status){
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                indicator.setState(status);
+                indicator.invalidate();
+            }
+        });
     }
 }
