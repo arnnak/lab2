@@ -18,7 +18,7 @@
             android:text="Send request"
             android:textColor="#fff"
             android:padding="10dp"
-            android:background="@drawable/button_default"/>
+            android:background="@drawable/button"/>
         <com.example.lenovoz51.lab2.IndicationgView
             android:id="@+id/generated_graphic"
             android:layout_width="200dp"
@@ -40,5 +40,21 @@
             android:layout_height="wrap_content"
             android:textSize="12sp"
             android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circle"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:textColor="@android:color/white" />
+
+        <ProgressBar
+            android:id="@+id/bar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

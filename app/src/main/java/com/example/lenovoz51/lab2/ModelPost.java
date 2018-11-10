@@ -10,15 +10,17 @@ public class ModelPost {
     private int userId;
     private String title;
     private String bodyText;
+    private int size;
 
     public ModelPost(){
     }
 
-    public ModelPost(int id, int userId, String title, String bodyText){
+    public ModelPost(int id, int userId, String title, String bodyText, int size){
         this.id = id;
         this.userId =userId;
         this.title=title;
         this.bodyText = bodyText;
+        this.size = size;
     }
 
 
@@ -52,5 +54,13 @@ public class ModelPost {
 
     public void setBodyText(String bodyText) {
         this.bodyText = bodyText;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 }

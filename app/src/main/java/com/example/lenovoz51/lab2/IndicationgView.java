@@ -16,6 +16,7 @@ public class IndicationgView extends View {
     public static final int NOTEEECUTED = 0;
     public static final int success = 1;
     public static final int failed = 2;
+    public static final int executing = 3;
 
     int state = NOTEEECUTED;
 
@@ -53,6 +54,14 @@ public class IndicationgView extends View {
                 paint.setStrokeWidth(20f);
                 canvas.drawLine(0,0,width,height,paint);
                 canvas.drawLine(0,height,width,0,paint);
+                break;
+            case executing:
+                paint = new Paint();
+                paint.setColor(Color.YELLOW);
+                paint.setStrokeWidth(20f);
+                canvas.drawLine(0,height,width/2,0,paint);
+                canvas.drawLine(width/2,0,width,height,paint);
+                canvas.drawLine(0,height,width,height,paint);
                 break;
             default:
                 break;
